@@ -1,9 +1,11 @@
 import jsonfile from 'jsonfile';
 import { IUser } from '@entities/User';
+import { IProduk } from '@entities/Produk';
 
 
 interface IDatabase {
     users: IUser[];
+    products: IProduk[];
 }
 
 
