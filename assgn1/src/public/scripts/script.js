@@ -11,10 +11,10 @@ function addProduk() {
     var deskripsiInput = document.getElementById("deskripsi-input");
     var hargaInput = document.getElementById('harga-input')
     var data = {
-        product: {
+        produk: {
             nama: namaInput.value,
             deskripsi: deskripsiInput.value,
-            harga: hargaInput.value
+            harga: hargaInput.value,
         }
     }
     console.log(data);
@@ -32,7 +32,7 @@ function getOptions(method, data) {
         method: method,
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json;charset=utf-8'
         }
     };
     if (data) {
