@@ -5,7 +5,7 @@ declare module 'express' {
     export interface Request  {
         body: {
             user: IUser,
-            product: IProduk
+            produk: IProduk
         };
     }
 }

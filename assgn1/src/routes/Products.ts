@@ -27,13 +27,13 @@ export async function readAllProducts(req: Request, res: Response) {
  * @returns 
  */
 export async function createProduct(req: Request, res: Response) {
-    const { product } = req.body;
-    if (!product) {
+    const { produk } = req.body;
+    if (!produk) {
         return res.status(BAD_REQUEST).json({
             error: paramMissingError,
         })
     }
-    await produkDao.create(product);
+    await produkDao.create(produk);
     return res.status(CREATED).end();
 }
 
@@ -44,14 +44,14 @@ export async function createProduct(req: Request, res: Response) {
  * @returns 
  */
 export async function updateProduct(req: Request, res: Response) {
-    const { product } = req.body;
-    if (!product) {
+    const { produk } = req.body;
+    if (!produk) {
         return res.status(BAD_REQUEST).json({
             error: paramMissingError
         })
     }
-    product.id = Number(product.id);
-    await produkDao.update(product);
+    produk.id = Number(produk.id);
+    await produkDao.update(produk);
     return res.status(OK).end();
 }
 
