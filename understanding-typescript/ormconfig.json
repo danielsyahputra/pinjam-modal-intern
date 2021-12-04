@@ -1,0 +1,11 @@
+{
+    "type": "postgres",
+    "host": "ec2-54-89-105-122.compute-1.amazonaws.com",
+    "port": 5432,
+    "username": "yccdkssfgwffqt",
+    "password": "c355fc569b4f9aed6953e60e7875fff14aa160ea8e51dc0a8234195b9990a6c1",
+    "database": "d1it4qa782rfe9",
+    "synchronize": true,
+    "logging": true,
+    "entities": ["src/entities/**/*.ts", "dist/entities/**/*.js"]
+}
