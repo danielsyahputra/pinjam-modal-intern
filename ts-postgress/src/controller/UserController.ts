@@ -19,7 +19,8 @@ export class UserController {
     }
 
     async remove(request: Request, response: Response, next: NextFunction) {
-        let userToRemove = await this.userRepository.findOne(request.params.id);
+        const userToRemove = await this.userRepository.findOne(request.params.id);
+        if (!userToRemove) throw Error('user does not exist')
         await this.userRepository.remove(userToRemove);
     }
 
