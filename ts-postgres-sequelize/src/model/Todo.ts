@@ -8,7 +8,7 @@ interface TodoAtribut {
     selesai: boolean
 }
 
-export class Todo extends Model<TodoAtribut> {}
+export default class Todo extends Model<TodoAtribut> {}
 
 Todo.init({
     id: {
