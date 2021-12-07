@@ -25,7 +25,7 @@ class TodoController {
             const record = await Todo.create({ ...req.body });
             return res.json({ record, message: "Successfully create todo!", status: 200 });
         } catch (error) {
-            return res.json({ message: "Fail to create!", status: 500, error: error });
+            return res.json({ message: "Fail to create!", status: 500 });
         }
     }
 
