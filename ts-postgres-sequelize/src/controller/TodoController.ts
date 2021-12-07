@@ -25,7 +25,7 @@ class TodoController {
             const record = await Todo.create({ ...req.body });
             return res.json({ record, message: "Successfully create todo!", status: 200 });
         } catch (error) {
-            return res.json({ message: "Fail to create!", status: 500 });
+            return res.json({ message: "Fail to create!", status: 500, error: error });
         }
     }
 
@@ -35,7 +35,7 @@ class TodoController {
             await record?.destroy();
             return res.json({message: "Successfully deleted!", status: 200})
         } catch (error) {
-            return res.json({ message: "Fail to delete!", status: 500 });
+            return res.json({ message: "Fail to delete!", status: 500});
         }
     }
 }
