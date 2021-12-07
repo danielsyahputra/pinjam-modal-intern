@@ -3,6 +3,8 @@ import express, { NextFunction, Request, Response } from "express";
 import { port } from "./config";
 import db from "./config/database.config";
 import Todo from "./model/Todo";
+import TodoValidator from "./validator/index";
+import Middleware from "./middleware/index";
 
 db.authenticate();
 
@@ -14,7 +16,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.post("/todos", async (req: Request, res: Response, next: NextFunction) => {
+app.post("/todos", TodoValidator.checkCreateTodo(),
+    Middleware.handleValidationError,
+    async (req: Request, res: Response) => {
     try {
         const record = await Todo.create({ ...req.body })
         return res.json({ record, message: "Successfully create todo!", status: 200 });
