@@ -1,15 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import db from "../config/database.config";
-import User from "./User";
 
-interface HobiAtribut {
-    id: number,
-    nama: string
-}
-
-export default class Hobi extends Model<HobiAtribut> { };
-
-Hobi.init({
+const Hobi = db.define('hobbies', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -19,12 +11,6 @@ Hobi.init({
         type: DataTypes.STRING,
         allowNull: false
     }
-}, {
-    sequelize: db,
-    modelName: 'Hobi',
-    tableName: 'hobbies'
 })
 
-Hobi.belongsToMany(User, {
-    through: 'UserHobbies'
-})
+export default Hobi;

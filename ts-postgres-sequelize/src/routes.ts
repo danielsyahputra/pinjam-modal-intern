@@ -8,6 +8,7 @@ const todoRouter = Router();
 todoRouter.get('', TodoController.all);
 todoRouter.get('/:id', TodoValidator.checkFindAndDeleteTodo(), Middleware.handleValidationError ,TodoController.one);
 todoRouter.post('', TodoValidator.checkCreateTodo(), Middleware.handleValidationError, TodoController.create);
+todoRouter.put('/:id', TodoValidator.checkCreateTodo(), Middleware.handleValidationError, TodoController.update);
 todoRouter.delete('/:id', TodoValidator.checkFindAndDeleteTodo(), Middleware.handleValidationError, TodoController.delete);
 
 const baseRouter = Router();

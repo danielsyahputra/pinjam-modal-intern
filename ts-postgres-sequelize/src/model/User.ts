@@ -1,17 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import db from "../config/database.config";
-import Todo from "./Todo";
-import Hobi from "./Hobi";
 
-interface UserAtribut {
-    id: number,
-    username: string, 
-    nomorKTP: string
-}
-
-export default class User extends Model<UserAtribut> { };
-
-User.init({
+const User = db.define('users', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -27,15 +17,6 @@ User.init({
         allowNull: false,
         unique: true
     }
-}, {
-    sequelize: db,
-    modelName: 'User',
-    tableName: 'users'
 })
 
-User.hasMany(Todo, {
-    onDelete: 'cascade'
-})
-User.belongsToMany(Hobi, {
-    through: 'UserHobbies'
-})
+export default User;

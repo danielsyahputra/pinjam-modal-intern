@@ -29,6 +29,17 @@ class TodoController {
         }
     }
 
+    async update(req: Request, res: Response, next: NextFunction) {
+        try {
+            const todo = await Todo.findByPk(req.params.id);
+            todo?.set({ ...req.body });
+            todo?.save();
+            return res.json({ todo, message: "Succesfully update todo!", status: 200 });
+        } catch (error) {
+            return res.json({ message: "Fail to update", status: 500 });
+        }
+    }
+
     async delete(req: Request, res: Response, next: NextFunction) {
         try {
             const record = await Todo.findByPk(req.params.id);

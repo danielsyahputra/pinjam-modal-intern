@@ -1,17 +1,7 @@
-import { Model, DataTypes } from "sequelize";
+import { DataTypes, Op } from "sequelize";
 import db from "../config/database.config";
-import User from "./User";
 
-interface TodoAtribut {
-    id: number,
-    judul: string,
-    deskripsi: string,
-    selesai: boolean
-}
-
-export default class Todo extends Model<TodoAtribut> {}
-
-Todo.init({
+const Todo = db.define('todos', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -29,14 +19,6 @@ Todo.init({
         type: DataTypes.BOOLEAN,
         defaultValue: false
     }
-}, {
-    sequelize: db,
-    modelName: 'Todo',
-    tableName: 'todos'
 })
 
-Todo.belongsTo(User, {
-    foreignKey: {
-        allowNull: false
-    }
-})
+export default Todo;
