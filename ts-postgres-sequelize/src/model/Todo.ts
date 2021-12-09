@@ -1,5 +1,6 @@
 import { DataTypes, Op } from "sequelize";
 import db from "../config/database.config";
+import User from "./User";
 
 const Todo = db.define('todos', {
     id: {

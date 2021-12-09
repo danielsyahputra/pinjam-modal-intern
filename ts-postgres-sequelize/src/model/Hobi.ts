@@ -1,5 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import db from "../config/database.config";
+import User from "./User";
 
 const Hobi = db.define('hobbies', {
     id: {

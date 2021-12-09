@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response, } from "express";
+import Todo from "../model/Todo";
 import User from "../model/User";
 
 class UserController {
     async all(req: Request, res: Response, next: NextFunction) {
         try {
-            const users = await User.findAll({ where: {} });
+            const users = await User.findAll({ where: {}, include: Todo });
             return res.json(users);
         } catch (error) {
             return res.json({message: "Fail to read!", status: 500})
