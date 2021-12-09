@@ -1,5 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import db from "../config/database.config";
+import User from "./User";
 
 interface TodoAtribut {
     id: number,
@@ -32,4 +33,10 @@ Todo.init({
     sequelize: db,
     modelName: 'Todo',
     tableName: 'todos'
+})
+
+Todo.belongsTo(User, {
+    foreignKey: {
+        allowNull: false
+    }
 })
