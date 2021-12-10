@@ -21,9 +21,17 @@ const User = db.define('users', {
     }
 })
 
-User.hasMany(Todo);
-User.belongsToMany(Hobi, { through: 'user_hobbies' });
-Hobi.belongsToMany(User, { through: 'user_hobbies' });
+User.hasMany(Todo, {
+    foreignKey: {
+        allowNull: false
+    }
+});
+User.belongsToMany(Hobi, {
+    through: 'user_hobbies',
+});
+Hobi.belongsToMany(User, {
+    through: 'user_hobbies',
+});
 db.sync({ alter: true }).then(() => {
     //
 }).catch((err) => {
