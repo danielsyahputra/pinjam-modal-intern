@@ -14,7 +14,10 @@ todoRouter.delete('/:id', TodoValidator.checkFindAndDeleteTodo(), Middleware.han
 
 const userRouter = Router();
 userRouter.get('', UserController.all);
+userRouter.get('/:id', UserController.one);
 userRouter.post('', UserController.create);
+userRouter.put('/:id', UserController.update);
+userRouter.delete('/:id', UserController.delete);
 
 const baseRouter = Router();
 baseRouter.use('/todos', todoRouter);
