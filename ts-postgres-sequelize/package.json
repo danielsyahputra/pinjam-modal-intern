@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon -w *.ts -w .env src/index.ts"
+    "dev": "nodemon -w *.ts -w .env src/index.ts",
+    "start": "node dist/src/index.js",
+    "postinstall": "tsc"
   },
   "author": "",
   "license": "ISC",
